@@ -4,13 +4,9 @@ ENV MONGO_EXPRESS 0.20.0
 
 RUN npm install mongo-express@$MONGO_EXPRESS
 
-WORKDIR /node_modules/mongo-express
+ADD ./config.js /node_modules/mongo-express/config.js
 
-RUN sed -r \
-	-e "s/(server:) 'localhost'/\1 'mongo'/" \
-	-e "s/(adminUsername:) 'admin'/\1 ''/" \
-	-e "s/(adminPassword:) 'pass'/\1 ''/" \
-	config.default.js > config.js
+WORKDIR /node_modules/mongo-express
 
 EXPOSE 8081
 CMD ["node", "app"]
