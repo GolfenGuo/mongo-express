@@ -22,8 +22,8 @@ module.exports = {
        */
       {
         database: process.env.MONGO_INSTANCE_NAME,
-        username: process.env.MONGO_USERNAME,
-        password: process.env.MONGO_PASSWORD
+        //username: process.env.MONGO_USERNAME,
+        //password: process.env.MONGO_PASSWORD
       }
     ],
 
