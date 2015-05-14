@@ -1,22 +1,17 @@
 # mongo-express
 
-A dockerized [mongo-express](https://github.com/andzdroid/mongo-express) for viewing mongoDB in the browser
+mongo-express是使用Node.js和express实现的轻量级MongoDB管理程序，通过它您可以轻松管理您存储在MongoDB的数据。
 
-## How to run this container
+## 注意事项
 
-	docker run -it --rm \
-		--name mongo-express \
-		--link NAME_OF_MONGODB_CONTAINER:mongo \
-		knickers/mongo-express
+目前该mongo-express镜像不支持授权认证，您启动mongo-express容器后，容器的URL是公开访问的。所以，您使用完毕后请立即“停止”容器，防止MongoDB数据被他人操作。
 
-`--link` is the key here, where you link your mongoDB container into the mongo-express container.
+## 版本
 
-If you have [tianon/rawdns](https://github.com/tianon/rawdns) running, this container will be accessible at:
+0.20.0
 
-`http://mongo-express.docker:8081`
+## 使用说明
 
-### Note from the mongo-express developers:
-
-> JSON documents are parsed through a javascript virtual machine, so the web interface can be used for executing malicious javascript on a server.
-
-> **mongo-express should only be used privately for development purposes.**
+* 从最新镜像启动mongo-express容器
+* 绑定一个需要管理的MongoDB服务实例，设置服务别名为“MongoDB”（绑定时的默认值）
+* 启动容器
